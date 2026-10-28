@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Nexus Warehouse — Smart Inventory & Route Optimization
 
 A full-stack warehouse operations dashboard built with Python's standard library and a responsive HTML/CSS/JavaScript frontend. Created as a DSA-II project for inventory management, demand analytics, shelf placement, and order picking-route optimization.
@@ -75,3 +76,6 @@ smart-warehouse-optimization/
 ├── .gitignore      # Excludes local data and generated files
 └── run.bat         # Windows one-click launcher
 ```
+=======
+# smart-warehouse-inventory-optimization
+>>>>>>> b92675500ceb0e92ac5cb67a3317f3c12f9067a2
