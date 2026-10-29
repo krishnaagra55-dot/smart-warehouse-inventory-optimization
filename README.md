@@ -29,8 +29,12 @@ A full-stack warehouse operations dashboard built with Python's standard library
 3. Open `http://localhost:8000` in your browser.
 4. Register a test account and explore the dashboard.
 
+  
+6. https://smart-warehouse-inventory-optimization-jf09.onrender.com/
+
 ## Deployment
 
 The application can be hosted on a Python-compatible service such as Render. Configure the service to start with `python app.py` and use the platform-provided `PORT` environment variable.
 
 **Important:** The current application stores data locally in `data.json`. Configure persistent storage or a database before relying on production data. Do not use real customer information until authentication, storage, and security have been reviewed.
+-
