@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: smart-warehouse-backend
+    runtime: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python app.py"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.11
+      - key: ML_BUNDLE_PATH
+        value: /tmp/inference_bundle.joblib
