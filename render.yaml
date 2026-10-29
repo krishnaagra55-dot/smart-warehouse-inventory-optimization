@@ -4,10 +4,3 @@ services:
     runtime: python
     buildCommand: "echo Build complete"
     startCommand: "python app.py"
-    disk:
-      name: warehouse-data
-      mountPath: /var/data
-      sizeGB: 1
-    envVars:
-      - key: DATA_DIR
-        value: /var/data
