@@ -8,7 +8,7 @@ from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-DB = os.path.join(BASE, "data.json")
+DB = os.path.join(os.environ.get("DATA_DIR", BASE), "data.json")
 LOCK = threading.Lock()
 
 # ───────── Unit 1: Hash table (SKU -> item, chaining, O(1) avg) ─────────
@@ -284,3 +284,4 @@ if __name__ == "__main__":
     load(); port = int(os.environ.get("PORT", 8000))
     print(f"Smart Warehouse running at http://localhost:{port}")
     ThreadingHTTPServer(("0.0.0.0", port), Handler).serve_forever()
+
