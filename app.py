@@ -195,6 +195,30 @@ def api(m, p, q, b, user):
         t = secrets.token_hex(24); TOK[t] = u; return {"token": t, "user": u}, 200
     if not user: return err("Unauthorized", 401)
 
+    if p == "/api/ml-status" and m == "GET":
+        try:
+            from ml_forecast import status
+            return status(), 200
+        except Exception as e:
+            return {"available": False, "message": f"ML status unavailable: {e}"}, 200
+    if p == "/api/forecast" and m == "GET":
+        try:
+            from ml_forecast import forecast
+            store_id = int(q.get("store_id", [""])[0])
+            item_id = int(q.get("item_id", [""])[0])
+            horizon = int(q.get("horizon", ["7"])[0])
+            promotion = q.get("promotion", ["0"])[0] == "1"
+            festival = q.get("festival", ["0"])[0] == "1"
+            return forecast(store_id, item_id, horizon, promotion, festival), 200
+        except ValueError as e:
+            return err(str(e), 400)
+        except LookupError as e:
+            return err(str(e), 404)
+        except RuntimeError as e:
+            return err(str(e), 503)
+        except Exception as e:
+            return err(f"Forecast failed: {e}", 500)
+
     if p == "/api/items" and m == "GET":
         return {"items": sorted(HT.values(), key=lambda i: i["sku"]), "rows": ROWS, "cols": COLS, "cap": SHCAP}, 200
     if p == "/api/items" and m == "POST":
