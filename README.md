@@ -1,3 +1,4 @@
+
 # AI-Driven Smart Warehouse & Product Forecasting
 
 A responsive warehouse dashboard with authentication, inventory management, order fulfilment, DSA-based route/layout optimization, and an optional inference bridge to the XGBoost demand forecasting model trained in the Colab notebook.
